@@ -40,8 +40,8 @@ void register_publish_hooks()
     data["millis"] = millis();
     data["relayState"] = relayPinState;
     data["updateInterval"] = PUBLISH_EVERY;
-    int i_weight = weight * 100;
-    data["scale"] = i_weight;
+    unsigned long l_weight = weight * 1000;
+    data["scale"] = l_weight;
   },
                         PUBLISH_EVERY);
   mqtt->on_after_prepare_data([&](JsonObject *root) {
